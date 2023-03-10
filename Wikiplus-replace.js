@@ -171,4 +171,4 @@ $(function () {
         childList: true
     }
     observar.observe(document.body, options)
-})
+});
