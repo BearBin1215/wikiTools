@@ -55,11 +55,11 @@ $(function () {
                             var newCode = code.replace(new RegExp(data[1], 'gm'), data[2] ? data[2] : '')
                                 .replace(/_@br_/g, br)
                             if (code == newCode) {
-                                mw.notify('匹配结果为空！', { type: 'warn' })
+                                mw.notify('匹配结果为空', { type: 'warn' })
                             } else {
                                 wikiplusTextarea.val(newCode)
                                 data[4] && $('#Wikiplus-Quickedit-Summary-Input').val(data[4])
-                                mw.notify('已完成替换！')
+                                mw.notify('已完成替换')
                             }
                         }
 
@@ -139,11 +139,11 @@ $(function () {
                             var newCode = code.replace(new RegExp(pattern, 'gm'), replaceText ? replaceText : '')
                                 .replace(/_@br_/g, br)
                             if (code == newCode) {
-                                mw.notify('匹配结果为空！', { type: 'warn' })
+                                mw.notify('匹配结果为空', { type: 'warn' })
                             } else {
                                 wikiplusTextarea.val(newCode)
                                 note && $('#Wikiplus-Quickedit-Summary-Input').val(note)
-                                mw.notify('已完成替换！')
+                                mw.notify('已完成替换')
                             }
                         }
 
@@ -158,7 +158,7 @@ $(function () {
                     })
                     $(wikiplus).find('.Wikiplus-InterBox-Content')
                         .find('div:first').find('.Wikiplus-Btn:last').after(newButton)
-                    mw.notify('已添加新的替换方案！')
+                    mw.notify('已添加新的替换方案')
                 })
 
             })
