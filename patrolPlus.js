@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 $(function () {
-    var _this = this;
     if (!["Recentchanges", "Watchlist"].includes(mw.config.get("wgCanonicalSpecialPageName"))) {
         return;
     }
@@ -44,10 +43,9 @@ $(function () {
     var patrolling = false;
     var list = [];
     var running = false;
-    var handlePatroll = function (title, _revid) { return __awaiter(_this, void 0, void 0, function () {
+    var handlePatroll = function (title, _revid) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, _b, _c;
         var _d;
-        var _this = this;
         return __generator(this, function (_e) {
             switch (_e.label) {
                 case 0:
@@ -57,7 +55,7 @@ $(function () {
                         action: "patrol",
                         format: "json"
                     };
-                    return [4, (function () { return __awaiter(_this, void 0, void 0, function () {
+                    return [4, (function () { return __awaiter(void 0, void 0, void 0, function () {
                             var data;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
@@ -92,7 +90,7 @@ $(function () {
         if (self.closest("tbody").find("tr")[1] && self.closest("tr").index() === 0) {
             return;
         }
-        var container = $('<a href="#" class="patrolLink"></a>');
+        var container = $('<a href="#" class="patrolLink" style="user-select:none"></a>');
         self.after(container).appendTo(container).before("[").after("]");
         self = container;
         var link = self.closest("li,tr").find('a[href*="diff"]:not([href*="diff=0"])').first();
@@ -113,7 +111,7 @@ $(function () {
             "data-title": list.indexOf(title),
             "data-revid": revid
         });
-        self.on("click", function (event) { return __awaiter(_this, void 0, void 0, function () {
+        self.on("click", function (event) { return __awaiter(void 0, void 0, void 0, function () {
             var textStatus, data, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
