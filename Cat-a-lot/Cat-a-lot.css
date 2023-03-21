@@ -17,7 +17,7 @@
 	margin: 0 0 0 5px;
 }
 #cat_a_lot_selections, #cat_a_lot_mark_counter, #cat_a_lot_settings {
-	background: url(/w/skins/Vector/images/portal-break.png) no-repeat;
+	background: url(https://cdn.jsdelivr.net/gh/BearBin1215/wikiTools@master/Cat-a-lot/images/portal-break.png) no-repeat;
 	padding: 5px;
 }
 #cat_a_lot_remove {
@@ -39,7 +39,7 @@ a {
 }
 
 .cat_a_lot_done {
-	background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Dialog-apply.svg/50px-Dialog-apply.svg.png) !important;
+	background-image: url(https://cdn.jsdelivr.net/gh/BearBin1215/wikiTools@master/Cat-a-lot/images/50px-Dialog-apply.svg.png) !important;
 	background-position: 8px 50% !important;
 	padding-top: 0 !important;
 }
