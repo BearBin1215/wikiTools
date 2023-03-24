@@ -130,7 +130,7 @@ $(function () {
                             "text-decoration": "none"
                         });
                         textStatus = $("<span></span>", {
-                            html: '[<img src="https://img.moegirl.org.cn/common/d/d1/Windows_10_loading.gif" style="height: 1em; margin-top: -.25em;">正在标记中……]'
+                            html: '[<img src="https://img.moegirl.org.cn/common/d/d1/Windows_10_loading.gif" style="height: 1em; margin-top: -.25em;">⟳]'
                         });
                         self.after(textStatus).hide();
                         running = true;
