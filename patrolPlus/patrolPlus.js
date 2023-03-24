@@ -143,7 +143,7 @@ $(function () {
                         if (Reflect.has(data, "error")) {
                             throw data.error;
                         }
-                        textStatus.text("[标记成功]");
+                        textStatus.text("[✓]");
                         setTimeout(function () {
                             window.setTimeout(function () {
                                 textStatus.remove();
