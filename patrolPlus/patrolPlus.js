@@ -40,7 +40,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 $(function () {
-    if (!["Recentchanges", "Watchlist"].includes(mw.config.get("wgCanonicalSpecialPageName"))) {
+    if (!["Recentchanges", "Watchlist", "Recentchangeslinked"].includes(mw.config.get("wgCanonicalSpecialPageName"))) {
         return;
     }
     var api = new mw.Api();
@@ -153,11 +153,11 @@ $(function () {
                         return [3, 4];
                     case 3:
                         error_1 = _a.sent();
-                        textStatus.text("[\u6807\u8BB0\u5931\u8D25\uFF1A".concat(error_1 instanceof Error ? error_1.name : error_1.code, "\uFF0C\u8BF7\u57283\u79D2\u540E\u91CD\u8BD5]"));
+                        textStatus.text("[\u6807\u8BB0\u5931\u8D25\uFF1A".concat(error_1 instanceof Error ? error_1.name : error_1.code, "\uFF0C\u8BF7\u57282\u79D2\u540E\u91CD\u8BD5]"));
                         window.setTimeout(function () {
                             textStatus.remove();
                             self.show();
-                        }, 3000);
+                        }, 2000);
                         return [3, 4];
                     case 4:
                         $("a.patrolLink").removeAttr("style");
