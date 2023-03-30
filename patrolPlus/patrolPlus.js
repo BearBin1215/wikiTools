@@ -142,6 +142,7 @@ $(function () {
                         return [4, sleep(2000)];
                     case 3:
                         _a.sent();
+                        textStatus.remove();
                         return [3, 6];
                     case 4:
                         error_1 = _a.sent();
