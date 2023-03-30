@@ -44,9 +44,8 @@ $(function () {
         return;
     }
     var api = new mw.Api();
-    var patrolling = false;
-    var list = [];
     var running = false;
+    var list = [];
     var handlePatroll = function (title, _revid) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, _b, _c;
         var _d;
@@ -89,15 +88,15 @@ $(function () {
             }
         });
     }); };
+    var sleep = function (t) { return new Promise(function (res) { return setTimeout(res, t); }); };
     $("abbr.unpatrolled").each(function (_, ele) {
         var self = $(ele);
         if (self.closest("tbody").find("tr")[1] && self.closest("tr").index() === 0) {
             return;
         }
-        var container = $('<a href="#" class="patrolLink" style="user-select:none"></a>');
+        var container = $('<a href="#" class="patrolLink"></a>');
         self.after(container).appendTo(container).before("[").after("]");
-        self = container;
-        var link = self.closest("li,tr").find('a[href*="diff"]:not([href*="diff=0"])').first();
+        var link = container.closest("li,tr").find('a[href*="diff"]:not([href*="diff=0"])').first();
         var uri, title, revid;
         if (link[0]) {
             uri = new mw.Uri(link.attr("href"));
@@ -105,38 +104,35 @@ $(function () {
             revid = +uri.query.diff;
         }
         else {
-            uri = new mw.Uri(self.closest("li, tr").find(".mw-changeslist-history").first().attr("href"));
+            uri = new mw.Uri(container.closest("li, tr").find(".mw-changeslist-history").first().attr("href"));
             title = uri.query.title;
         }
         if (!list.includes(title)) {
             list.push(title);
         }
-        self.attr({
+        container.attr({
             "data-title": list.indexOf(title),
             "data-revid": revid
         });
-        self.on("click", function (event) { return __awaiter(void 0, void 0, void 0, function () {
+        container.on("click", function (event) { return __awaiter(void 0, void 0, void 0, function () {
             var textStatus, data, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         event.preventDefault();
-                        if (patrolling) {
+                        if (running) {
                             return [2];
                         }
-                        patrolling = true;
-                        $("a.patrolLink").not(self).css({
-                            color: "#aaa",
-                            "text-decoration": "none"
-                        });
+                        running = true;
+                        container.addClass("running");
+                        document.body.classList.add("patrolPlusRunning");
                         textStatus = $("<span></span>", {
                             html: '[<img src="https://img.moegirl.org.cn/common/d/d1/Windows_10_loading.gif" style="height: 1em; margin-top: -.25em;">]'
                         });
-                        self.after(textStatus).hide();
-                        running = true;
+                        container.after(textStatus).hide();
                         _a.label = 1;
                     case 1:
-                        _a.trys.push([1, 3, , 4]);
+                        _a.trys.push([1, 4, , 6]);
                         return [4, handlePatroll(title, revid)];
                     case 2:
                         data = _a.sent();
@@ -144,24 +140,23 @@ $(function () {
                             throw data.error;
                         }
                         textStatus.text("[✓]");
-                        setTimeout(function () {
-                            window.setTimeout(function () {
-                                textStatus.remove();
-                                self.show().replaceWith("");
-                            }, typeof revid === "number" ? 16 : 3000);
-                        }, 2000);
-                        return [3, 4];
+                        return [4, sleep(3000)];
                     case 3:
+                        _a.sent();
+                        return [3, 6];
+                    case 4:
                         error_1 = _a.sent();
                         textStatus.text("[\u6807\u8BB0\u5931\u8D25\uFF1A".concat(error_1 instanceof Error ? error_1.name : error_1.code, "\uFF0C\u8BF7\u57282\u79D2\u540E\u91CD\u8BD5]"));
-                        window.setTimeout(function () {
-                            textStatus.remove();
-                            self.show();
-                        }, 2000);
-                        return [3, 4];
-                    case 4:
-                        $("a.patrolLink").removeAttr("style");
-                        patrolling = false;
+                        console.error("[patrolPlus]", error_1);
+                        return [4, sleep(2000)];
+                    case 5:
+                        _a.sent();
+                        textStatus.remove();
+                        container.show();
+                        return [3, 6];
+                    case 6:
+                        document.body.classList.remove("patrolPlusRunning");
+                        container.removeClass("running");
                         running = false;
                         return [2];
                 }
