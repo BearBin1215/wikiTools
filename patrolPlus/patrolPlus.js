@@ -1,6 +1,5 @@
 /**
  * 改自萌娘百科同名小工具：https://github.com/MoegirlPediaInterfaceAdmins/MoegirlPediaInterfaceCodes/tree/master/src/gadgets/patrolPlus
- * 进行了一点小修改，快速巡查不会弹窗确认，不会询问是否将本页面编辑全标记为已巡查。
  */
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
