@@ -126,7 +126,7 @@ $(function () {
                         container.addClass("running");
                         document.body.classList.add("patrolPlusRunning");
                         textStatus = $("<span></span>", {
-                            html: '[<img src="https://img.moegirl.org.cn/common/d/d1/Windows_10_loading.gif" style="height: 1em; margin-top: -.25em;">]'
+                            html: '[<span style="display:inline-block;animation:rotate 2s linear infinite;">↻</span>]'
                         });
                         container.after(textStatus).hide();
                         _a.label = 1;
@@ -139,7 +139,7 @@ $(function () {
                             throw data.error;
                         }
                         textStatus.text("[✓]");
-                        return [4, sleep(3000)];
+                        return [4, sleep(2000)];
                     case 3:
                         _a.sent();
                         return [3, 6];
@@ -162,6 +162,5 @@ $(function () {
             });
         }); });
     });
-    new Image().src = "https://img.moegirl.org.cn/common/d/d1/Windows_10_loading.gif";
     $(window).on("beforeunload", function () { return running ? true : undefined; });
 });
