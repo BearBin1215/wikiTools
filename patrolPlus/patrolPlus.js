@@ -142,7 +142,6 @@ $(function () {
                         return [4, sleep(2000)];
                     case 3:
                         _a.sent();
-                        textStatus.remove();
                         return [3, 6];
                     case 4:
                         error_1 = _a.sent();
@@ -151,10 +150,10 @@ $(function () {
                         return [4, sleep(2000)];
                     case 5:
                         _a.sent();
-                        textStatus.remove();
                         container.show();
                         return [3, 6];
                     case 6:
+                        textStatus.remove();
                         document.body.classList.remove("patrolPlusRunning");
                         container.removeClass("running");
                         running = false;
