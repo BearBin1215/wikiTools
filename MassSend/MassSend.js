@@ -15,6 +15,7 @@ $(() => {
             action: "edit",
             section: "new",
             watchlist: "nochange",
+            tags: "Automation tool",
             title: `User_talk:${item}`,
 
             // 这里是章节标题
