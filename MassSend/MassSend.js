@@ -1,6 +1,6 @@
 /**
  * 非常简陋的批量发讨论页信息脚本
- * 请修改内容后在浏览器内按F12打开控制台直接发送
+ * 修改内容后在浏览器内按F12打开控制台直接发送
  */
 
 "use strict";
@@ -16,11 +16,12 @@ $(() => {
             section: "new",
             watchlist: "nochange",
             tags: "Automation tool",
+            bot: true,
             title: `User_talk:${item}`,
 
             // 这里是章节标题
             sectiontitle: "测试标题",
-            
+
             // 这里是章节正文内容，记得转义，换行用\n
             text: "你的内容——~~~~",
 
