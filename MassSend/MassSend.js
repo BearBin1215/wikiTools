@@ -16,13 +16,15 @@ $(() => {
             section: "new",
             watchlist: "nochange",
             tags: "Automation tool",
-            bot: true,
             title: `User_talk:${item}`,
+
+            // 如果你不想刷屏最近更改，请在获得机器用户用户组之后取消下面一行的注释，编辑就会被标记为机器人。
+            //bot: true,
 
             // 这里是章节标题
             sectiontitle: "测试标题",
 
-            // 这里是章节正文内容，记得转义，换行用\n
+            // 这里是章节正文内容，双印号记得转义，换行请用\n
             text: "你的内容——~~~~",
 
             // 这里是编辑摘要
