@@ -1,6 +1,6 @@
 /**
- * 非常简陋的批量发讨论页信息脚本
- * 修改内容后在浏览器内按F12打开控制台直接发送
+ * 简陋的批量发讨论页信息脚本
+ * 写好内容后打开任意萌百页面按F12从控制台直接发送
  */
 
 "use strict";
@@ -8,7 +8,6 @@ $(() => {
     // 在这里输入你要发送的用户名，按需添加
     const userList = ["BearBin", "Bear_Bin", "BearB1n", "阿熊"];
 
-    // 在下面输入你发送的标题、内容
     for (const item of userList) {
         new mw.Api().postWithToken("csrf", {
             format: "json",
