@@ -1,6 +1,3 @@
-/**
- * 改自萌娘百科同名小工具：https://github.com/MoegirlPediaInterfaceAdmins/MoegirlPediaInterfaceCodes/tree/master/src/gadgets/patrolPlus
- */
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -131,7 +128,7 @@ $(function () {
                         container.after(textStatus).hide();
                         _a.label = 1;
                     case 1:
-                        _a.trys.push([1, 4, , 6]);
+                        _a.trys.push([1, 3, , 5]);
                         return [4, handlePatroll(title, revid)];
                     case 2:
                         data = _a.sent();
@@ -139,21 +136,20 @@ $(function () {
                             throw data.error;
                         }
                         textStatus.text("[✓]");
-                        return [4, sleep(2000)];
+                        return [3, 5];
                     case 3:
-                        _a.sent();
-                        return [3, 6];
-                    case 4:
                         error_1 = _a.sent();
                         textStatus.text("[\u6807\u8BB0\u5931\u8D25\uFF1A".concat(error_1 instanceof Error ? error_1.name : error_1.code, "\uFF0C\u8BF7\u57282\u79D2\u540E\u91CD\u8BD5]"));
                         console.error("[patrolPlus]", error_1);
                         return [4, sleep(2000)];
-                    case 5:
+                    case 4:
                         _a.sent();
                         container.show();
-                        return [3, 6];
-                    case 6:
-                        textStatus.remove();
+                        return [3, 5];
+                    case 5:
+                        setTimeout(function () {
+                            textStatus.remove();
+                        }, 2000);
                         document.body.classList.remove("patrolPlusRunning");
                         container.removeClass("running");
                         running = false;
