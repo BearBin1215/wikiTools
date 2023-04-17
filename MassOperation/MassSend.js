@@ -27,10 +27,12 @@ $(() => {
 
             // 这里是编辑摘要
             summary: "测试摘要",
-        }).done(() => {
-            console.log(`向用户${item}发送消息成功。`);
-        }).fail((err) => {
-            console.log(`向用户${item}发送消息失败：${err}。`);
-        });
+        })
+            .done(() => {
+                console.log(`向用户${item}发送消息成功。`);
+            })
+            .fail((err) => {
+                console.log(`向用户${item}发送消息失败：${err}。`);
+            });
     }
 });
