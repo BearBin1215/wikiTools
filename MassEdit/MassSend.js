@@ -8,6 +8,7 @@ $(() => {
     // 在这里输入你要发送的用户名，按需添加
     const userList = ["BearBin", "Bear_Bin", "BearB1n", "阿熊"];
 
+    const isBot = mw.config.get("wgUserGroups").includes("bot") || mw.config.get("wgUserGroups").includes("flood");
     for (const item of userList) {
         new mw.Api().postWithToken("csrf", {
             format: "json",
@@ -16,9 +17,7 @@ $(() => {
             watchlist: "nochange",
             tags: "Automation tool",
             title: `User_talk:${item}`,
-
-            // 如果你不想刷屏最近更改，请在获得机器用户用户组之后取消下面一行的注释，编辑就会被标记为机器人。
-            //bot: true,
+            bot: isBot,
 
             // 这里是章节标题
             sectiontitle: "测试标题",
