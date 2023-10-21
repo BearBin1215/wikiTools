@@ -26,10 +26,13 @@ $(() => (async () => {
         case "Moegirlpedia":
         case "萌えっ娘百科事典":
             summaryPrefix = "[[U:BearBin/js#MassEdit|MassEdit]]";
+            break;
         case "Wikipedia":
             summaryPrefix = "[[zh:U:BearBin1215/js#MassEdit|MassEdit]]";
+            break;
         default:
             summaryPrefix = "MassEdit";
+            break;
     }
 
     /**
